@@ -15,12 +15,13 @@ namespace EmployeePayrollADO
             do
             {
                 Console.Write("\n1. Add Employee Payroll Data\n" +
-                    "2. Retrieve All Records\n" +
-                    "3. Update Employee Payroll Data\n" +
-                    "4. Delete Employee Details\n" +
-                    "5. Retrieve All Employee Payroll Data Between Date Range\n" +
-                    "0. Exit\n" +
-                    "Select One Option: ");
+                   "2. Retrieve All Records\n" +
+                   "3. Update Employee Payroll Data\n" +
+                   "4. Delete Employee Details\n" +
+                   "5. Retrieve All Employee Payroll Data Between Date Range\n" +
+                   "6. Aggregate Functions\n" +
+                   "0. Exit\n" +
+                   "Select One Option: ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -32,7 +33,7 @@ namespace EmployeePayrollADO
                         operations.DisplayDetails();
                         break;
                     case 3:
-                        operations.UpdateEmployeeDetails();
+                        operations.UpdateEmployeeDetailss();
                         break;
                     case 4:
                         operations.DeleteEmployeeDetails();
@@ -40,6 +41,9 @@ namespace EmployeePayrollADO
                     case 5:
                         operations.RetrieveEmployeeDetailsBetweenDateRange();
                         operations.DisplayDetails();
+                        break;
+                    case 6:
+                        operations.AggregateFunctions();
                         break;
                     case 0:
                         Console.WriteLine("-----Thank You-----");
