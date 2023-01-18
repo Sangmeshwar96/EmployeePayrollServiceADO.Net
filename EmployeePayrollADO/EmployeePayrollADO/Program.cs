@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.FileIO;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace EmployeePayrollADO
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Employee Payroll Service ADO.Net!");
+            Option option = new Option();
+            option.CRUDOperation();
         }
     }
 }
