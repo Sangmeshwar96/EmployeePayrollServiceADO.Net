@@ -79,5 +79,61 @@ namespace EmployeePayrollADO
             }
             return empList;
         }
+        public int UpdateEmployeeDetails()
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("Update Employee Set Salary = @Salary Where Name = @Name", this.sqlConnection);
+                sqlCommand.CommandType = CommandType.Text;
+
+                sqlCommand.Parameters.AddWithValue("@Name", "Terisa");
+
+                sqlCommand.Parameters.AddWithValue("@Salary", "3000000");
+
+                sqlConnection.Open();
+                int effectedRows = sqlCommand.ExecuteNonQuery();
+
+                return effectedRows;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+        }
+
+        public void DeleteEmployeeDetails()
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("spDeleteEmployeeDetails", this.sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+                Console.Write("Give EmpId To Delete: ");
+                int empId = Convert.ToInt32(Console.ReadLine());
+                sqlCommand.Parameters.AddWithValue("@EmpId", empId);
+
+                sqlConnection.Open();
+                int effectedRows = sqlCommand.ExecuteNonQuery();
+                if (effectedRows >= 1)
+                {
+                    Console.WriteLine("-----Deleted Successfully-----");
+                }
+                else
+                    Console.WriteLine("-----Something Went Wrong-----");
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+
+        }
     }
 }
