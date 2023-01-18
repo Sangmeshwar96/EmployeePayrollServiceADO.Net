@@ -105,6 +105,31 @@ namespace EmployeePayrollADO
             }
 
         }
+        public int UpdateEmployeeDetailsWithStoredProcedure()
+        {
+            try
+            {
+                SqlCommand sqlCommand = new SqlCommand("spUpdateEmployeeDetails", this.sqlConnection);
+                sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                sqlCommand.Parameters.AddWithValue("@Name", "Terisa");
+
+                sqlCommand.Parameters.AddWithValue("@Salary", "3000000");
+
+                sqlConnection.Open();
+                int effectedRows = sqlCommand.ExecuteNonQuery();
+
+                return effectedRows;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
+        }
 
         public void DeleteEmployeeDetails()
         {

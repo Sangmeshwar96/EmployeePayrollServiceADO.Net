@@ -15,11 +15,11 @@ namespace EmployeePayrollADO
             do
             {
                 Console.Write("\n1. Add Employee Payroll Data\n" +
-                    "2. Retrieve All Records\n" +
-                    "3. Update Employee Payroll Data\n" +
-                    "4. Delete Employee Details\n" +
-                    "0. Exit\n" +
-                    "Select One Option: ");
+                     "2. Retrieve All Records\n" +
+                     "3. Update Employee Payroll Data\n" +
+                     "4. Delete Employee Details\n" +
+                     "0. Exit\n" +
+                     "Select One Option: ");
                 choice = Convert.ToInt32(Console.ReadLine());
                 Console.WriteLine("________________________________________");
                 switch (choice)
@@ -54,7 +54,7 @@ namespace EmployeePayrollADO
                         operations.DeleteEmployeeDetails();
                         break;
                     case 0:
-                        Console.WriteLine("-----Thankyou-----");
+                        Console.WriteLine("-----Thank You-----");
                         break;
                     default:
                         Console.WriteLine("-----Invalid Option-----");
